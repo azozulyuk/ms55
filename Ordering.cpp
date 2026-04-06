@@ -116,7 +116,7 @@ namespace seneca {
     }
 
     bool Ordering::hasUnsavedBill() const {
-        return m_hasBill;
+        return m_counter_billable > 0;
     }
 
     void Ordering::printBillTitle(ostream& os) const {
@@ -130,13 +130,13 @@ namespace seneca {
         double tax = total * Tax;
         double grand = total + tax;
 
-        os << "                     Total:        "
+        os << "                     Total:         "
             << fixed << setprecision(2) << total << endl;
 
         os << "                     Tax:           "
             << tax << endl;
 
-        os << "                     Total+Tax:    "
+        os << "                     Total+Tax:     "
             << grand << endl;
 
         os << "========================================" << endl;
@@ -223,21 +223,23 @@ namespace seneca {
     }
 
     void Ordering::resetBill() {
-        char filename[50];
-        ut.makeBillFileName(filename, m_bilSerialNum);
 
-        ofstream file(filename);
-        printBill(file);
+        if (m_counter_billable > 0) {
+            char filename[50];
+            ut.makeBillFileName(filename, m_bilSerialNum);
 
-        cout << "Saved bill number " << m_bilSerialNum << endl;
-        cout << "Starting bill number " << (m_bilSerialNum + 1) << endl;
+            ofstream file(filename);
+            printBill(file);
 
-        for (unsigned int i = 0; i < m_counter_billable; i++) {
+            cout << "Saved bill number " << m_bilSerialNum << endl;
+                m_bilSerialNum++;   
+        }
+        cout << "Starting bill number " << m_bilSerialNum << endl;
+for (unsigned int i = 0; i < m_counter_billable; i++) {
             delete m_billItems[i];
             m_billItems[i] = nullptr;
         }
 
         m_counter_billable = 0;
-        m_bilSerialNum++;
     }
-}
+} 
