@@ -46,9 +46,7 @@ int main() {
     Menu o("Order Menu", "Back to main menu", 3);
     o << "Food" << "Drink";
 
-    Menu c("You have bills that are not saved. Are you sure you want to exit?", "No", 0);
-    c << "Yes";
-
+   
     int doneNow = 0;
 
     while (!doneNow) {
