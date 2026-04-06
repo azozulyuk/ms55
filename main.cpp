@@ -92,7 +92,7 @@ int main() {
             if (ord.hasUnsavedBill()) {
                 cout << "You have bills that are not saved, are you sue you want to exit?\n";
 
-Menu confirm("", "No", 0);
+Menu confirm(" ", "No", 0);   
 confirm << "Yes";
 
 int check = confirm.run();
