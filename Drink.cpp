@@ -32,6 +32,7 @@ namespace seneca {
         m_price = 0.0;
         m_size = 0;
     }
+
     ifstream& Drink::read(ifstream& in) {
         in.getline(m_name, 51, ',');
         in >> m_price;
@@ -57,12 +58,12 @@ namespace seneca {
     }
     bool Drink::order() {
         cout << "         Drink Size Selection" << endl;
-        cout << "          1- Small" << endl;
-        cout << "          2- Medium" << endl;
-        cout << "          3- Larg" << endl;
-        cout << "          4- Extra Large" << endl;
-        cout << "          0- Back" << endl;
-        cout << "         > ";
+        cout << "           1- Small" << endl;
+        cout << "           2- Medium" << endl;
+        cout << "           3- Larg" << endl;
+        cout << "           4- Extra Large" << endl;
+        cout << "           0- Back" << endl;
+        cout << "          > ";
         cin >> m_size;
         if (m_size == 0) return false;
         return true;
