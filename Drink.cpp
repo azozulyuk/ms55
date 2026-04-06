@@ -47,7 +47,7 @@ namespace seneca {
         for (int i = 0; i < dots; i++) os << '.';
 
         if (m_size == 1) os << "SML..";
-        else if (m_size == 2) os << "MED..";
+        else if (m_size == 2) os << "MID..";
         else if (m_size == 3) os << "LRG..";
         else if (m_size == 4) os << "XLG..";
 
