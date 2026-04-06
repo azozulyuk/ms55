@@ -45,7 +45,7 @@ namespace seneca {
 
         for (int i = 0; i < m_indent; i++) cout << ' ';
         if (m_indent == 0)
-            cout << m_title << " " << endl;
+            cout << m_title << endl;
         else
             cout << m_title << endl;
         for (int i = 0; i < m_count; i++) {
