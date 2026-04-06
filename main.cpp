@@ -89,22 +89,20 @@ int main() {
             break;
 
         case 0:
-            if (ord.hasUnsavedBill()) {
-                cout << "You have bills that are not saved, are you sue you want to exit?\n";
+    if (ord.hasUnsavedBill()) {
+        Menu confirm("You have bills that are not saved, are you sue you want to exit?", "No", 0);
+        confirm << "Yes";
 
-Menu confirm(" ", "No", 0);   
-confirm << "Yes";
+        int check = confirm.run();
 
-int check = confirm.run();
-
-                if (check == 1) {
-                    doneNow = 1;
-                }
-            }
-            else {
-                doneNow = 1;
-            }
-            break;
+        if (check == 1) {
+            doneNow = 1;
+        }
+    }
+    else {
+        doneNow = 1;
+    }
+    break;
         }
     }
 
